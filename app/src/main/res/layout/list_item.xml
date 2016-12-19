@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="6dip" >
+
+    <TextView
+        android:id="@+id/txter1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:textSize="15sp"
+        android:textStyle="normal|bold"
+        android:text="Word :   "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/txter2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txter1"
+        android:layout_below="@+id/txter1"
+        android:textSize="15sp"
+        android:textStyle="normal|bold"
+        android:text="Mean :   "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/txter3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txter2"
+        android:layout_below="@+id/txter2"
+        android:textSize="15sp"
+        android:textStyle="normal|bold"
+        android:text="Synonim :   "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/txter4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txter3"
+        android:layout_below="@+id/txter3"
+        android:textSize="15sp"
+        android:textStyle="normal|bold"
+        android:text="Antonym :   "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/synonimofWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txter3"
+        android:layout_alignBottom="@+id/txter3"
+        android:layout_toRightOf="@+id/txter3"
+        android:textSize="15sp"
+        android:text=" TextView" />
+
+    <TextView
+        android:id="@+id/antonymofWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txter4"
+        android:layout_alignBottom="@+id/txter4"
+        android:textSize="15sp"
+        android:layout_alignLeft="@+id/synonimofWord"
+        android:text=" TextView" />
+
+    <TextView
+        android:id="@+id/wordMean"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txter3"
+        android:layout_toRightOf="@+id/txter3"
+        android:textSize="15sp"
+        android:text=" TextView" />
+
+    <TextView
+        android:id="@+id/word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txter2"
+        android:layout_alignLeft="@+id/wordMean"
+        android:textSize="15sp"
+        android:text=" TextView" />
+
+</RelativeLayout>
