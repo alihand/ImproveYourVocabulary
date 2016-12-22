@@ -15,8 +15,8 @@ import java.util.Random;
 public class Test extends AppCompatActivity {
 
     SQLiteDatabase myDatabase = null;
-    ArrayList<Words> myWordList = null;
-    ArrayList<Words> askingWordInfo = null;
+    ArrayList<Words> myWordList = new ArrayList<>();
+    ArrayList<Words> askingWordInfo = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,17 +36,19 @@ public class Test extends AppCompatActivity {
                 TextView question = (TextView) findViewById(R.id.lblQuestion);
                 String questionNow = question.getText().toString();
 
-                EditText txtAnswer = (EditText) findViewById(R.id.txtWord);
+                EditText txtAnswer = (EditText) findViewById(R.id.txtAnswer);
                 String answer = txtAnswer.getText().toString();
 
                 if(ControlAnswer(answer, questionNow)) {
-                    Toast.makeText(Test.this, "That's TRUE !", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Test.this, "That's TRUE !", Toast.LENGTH_SHORT).show();
                     question.setText(SetQuestions());
+                    txtAnswer.clearFocus();
                 }
                 else
                 {
-                    Toast.makeText(Test.this, "That's FALSE !", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Test.this, "That's FALSE !", Toast.LENGTH_SHORT).show();
                     question.setText(SetQuestions());
+                    txtAnswer.clearFocus();
                 }
             }
         });
@@ -54,7 +56,8 @@ public class Test extends AppCompatActivity {
 
     public ArrayList<Words> GetWordListFromDatabase(){
 
-        ArrayList<Words> myWords = null;
+        ArrayList<Words> myWords = new ArrayList<>();
+
         myDatabase = openOrCreateDatabase("MyVocabulary",MODE_PRIVATE,null);
         String selectQuery = "select * from MyWords";
 
@@ -90,7 +93,7 @@ public class Test extends AppCompatActivity {
 
     public ArrayList<Words> GetSpecificAskingWord(){
 
-        ArrayList<Words> myAskingWord = null;
+        ArrayList<Words> myAskingWord = new ArrayList<>();
         myWordList = GetWordListFromDatabase();
 
         Random random = new Random();
@@ -117,24 +120,24 @@ public class Test extends AppCompatActivity {
         askingWordInfo = GetSpecificAskingWord();
 
         Random random = new Random();
-        int rdNumber = random.nextInt(5);
+        int rdNumber = random.nextInt(4);
 
         String question = null;
         if(rdNumber == 1)
         {
-            question = askingWordInfo.get(0).word + " anlamı nedir ?";
+            question = "'"+ askingWordInfo.get(0).word + "' anlamı nedir ?";
         }
         else if(rdNumber == 2)
         {
-            question = "Anlamı " + askingWordInfo.get(0).mean + " olan kelime nedir ?";
+            question = "Anlamı " + "'"+ askingWordInfo.get(0).mean + "' olan kelime nedir ?";
         }
         else if(rdNumber == 3)
         {
-            question = "Eş Anlamı " + askingWordInfo.get(0).synonim + " olan kelime nedir ?";
+            question = "Eş Anlamı " + "'"+ askingWordInfo.get(0).synonim + "' olan kelime nedir ?";
         }
         else if(rdNumber == 4)
         {
-            question = "Zıt Anlamı " + askingWordInfo.get(0).antonym + " olan kelime nedir ?";
+            question = "Zıt Anlamı " + "'"+  askingWordInfo.get(0).antonym + "' olan kelime nedir ?";
         }
 
         return question;
