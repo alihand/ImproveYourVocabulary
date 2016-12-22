@@ -4,13 +4,13 @@ public class Words {
 
     public String word;
     public String mean;
-    public String synonim;
+    public String synonym;
     public String antonym;
 
-    /*public Words(String word,String mean,String synonim,String antonym){
+    /*public Words(String word,String mean,String synonym,String antonym){
         this.word = word;
         this.mean = mean;
-        this.synonim = synonim;
+        this.synonym = synonym;
         this.antonym = antonym;
     }*/
 
@@ -26,11 +26,11 @@ public class Words {
     public void setMean(String mean) {
         this.mean = mean;
     }
-    public String getSynonim() {
-        return synonim;
+    public String getSynonym() {
+        return synonym;
     }
-    public void setSynonim(String synonim) {
-        this.synonim = synonim;
+    public void setSynonym(String synonym) {
+        this.synonym = synonym;
     }
     public String getAntonym() {
         return antonym;

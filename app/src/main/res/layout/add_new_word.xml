@@ -76,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/lineerMean"
-        android:id="@+id/lineerSynonim"
+        android:id="@+id/lineerSynonym"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
@@ -87,7 +87,7 @@
             android:text="Eş Anlamı"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/lblSynonim"
+            android:id="@+id/lblSynonym"
             android:textSize="20sp"
             android:textStyle="normal|bold"
             android:textColor="@android:color/background_dark" />
@@ -96,7 +96,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:id="@+id/txtSynonim"
+            android:id="@+id/txtSynonym"
             android:layout_marginStart="27dp"
             android:textSize="20sp" />
 
@@ -107,7 +107,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lineerAntonym"
-        android:layout_below="@+id/lineerSynonim"
+        android:layout_below="@+id/lineerSynonym"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"

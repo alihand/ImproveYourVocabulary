@@ -14,7 +14,7 @@ public class SqlLiteHelper extends SQLiteOpenHelper {
 
     public static final String KEY_WORD="word";
 
-    public static final String KEY_SYNONIM="synonimofWord";
+    public static final String KEY_SYNONYM="synonymofWord";
 
     public static final String KEY_ANTONYM="antonymofWord";
 
@@ -27,7 +27,7 @@ public class SqlLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase database) {
 
-        String CREATE_TABLE="Create table if not exists "+TABLE_NAME+" ("+KEY_WORD+" TEXT , "+KEY_MEAN+" TEXT, "+KEY_SYNONIM+" TEXT, "+KEY_ANTONYM+" TEXT)";
+        String CREATE_TABLE="Create table if not exists "+TABLE_NAME+" ("+KEY_WORD+" TEXT , "+KEY_MEAN+" TEXT, "+KEY_SYNONYM+" TEXT, "+KEY_ANTONYM+" TEXT)";
         database.execSQL(CREATE_TABLE);
 
     }

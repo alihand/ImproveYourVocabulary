@@ -13,16 +13,16 @@ public class SqlLiteListAdapter extends BaseAdapter {
     Context context;
     ArrayList<String> word;
     ArrayList<String> wordMean;
-    ArrayList<String> synonimofWord;
+    ArrayList<String> synonymofWord;
     ArrayList<String> antonymofWord ;
 
 
-    public SqlLiteListAdapter(Context context2, ArrayList<String> word, ArrayList<String> wordMean, ArrayList<String> synonimofWord, ArrayList<String> antonymofWord)
+    public SqlLiteListAdapter(Context context2, ArrayList<String> word, ArrayList<String> wordMean, ArrayList<String> synonymofWord, ArrayList<String> antonymofWord)
     {
         this.context = context2;
         this.word = word;
         this.wordMean = wordMean;
-        this.synonimofWord = synonimofWord;
+        this.synonymofWord = synonymofWord;
         this.antonymofWord = antonymofWord ;
     }
 
@@ -52,7 +52,7 @@ public class SqlLiteListAdapter extends BaseAdapter {
 
             holder.TWword = (TextView) child.findViewById(R.id.word);
             holder.TWwordMean = (TextView) child.findViewById(R.id.wordMean);
-            holder.TWsynonimofWord = (TextView) child.findViewById(R.id.synonimofWord);
+            holder.TWsynonymofWord = (TextView) child.findViewById(R.id.synonymofWord);
             holder.TWantonymofWord = (TextView) child.findViewById(R.id.antonymofWord);
 
             child.setTag(holder);
@@ -63,7 +63,7 @@ public class SqlLiteListAdapter extends BaseAdapter {
         }
         holder.TWword.setText(word.get(position));
         holder.TWwordMean.setText(wordMean.get(position));
-        holder.TWsynonimofWord.setText(synonimofWord.get(position));
+        holder.TWsynonymofWord.setText(synonymofWord.get(position));
         holder.TWantonymofWord.setText(antonymofWord.get(position));
 
         return child;
@@ -72,7 +72,7 @@ public class SqlLiteListAdapter extends BaseAdapter {
     public class Holder {
         TextView TWword;
         TextView TWwordMean;
-        TextView TWsynonimofWord;
+        TextView TWsynonymofWord;
         TextView TWantonymofWord;
     }
 

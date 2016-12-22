@@ -18,7 +18,7 @@ public class AddNewWord extends AppCompatActivity {
         setContentView(R.layout.add_new_word);
 
         myDatabase = openOrCreateDatabase("MyVocabulary",MODE_PRIVATE,null);
-        String createQuery = "Create table if not exists MyWords(word text,wordMean text,synonimofWord text,antonymofWord text); ";
+        String createQuery = "Create table if not exists MyWords(word text,wordMean text,synonymofWord text,antonymofWord text); ";
         myDatabase.execSQL(createQuery);
 
         Button saveButton = (Button) findViewById(R.id.btnSave);
@@ -30,12 +30,12 @@ public class AddNewWord extends AppCompatActivity {
 
                 EditText wordText = (EditText) findViewById(R.id.txtWord);
                 EditText meanText = (EditText) findViewById(R.id.txtMean);
-                EditText synonimText = (EditText) findViewById(R.id.txtSynonim);
+                EditText synonymText = (EditText) findViewById(R.id.txtSynonym);
                 EditText antonymText = (EditText) findViewById(R.id.txtAntonym);
 
                 String word = wordText.getText().toString();
                 String mean = meanText.getText().toString();
-                String synonim = synonimText.getText().toString();
+                String synonim = synonymText.getText().toString();
                 String antonym = antonymText.getText().toString();
 
                 AddWordToDatabase(word,mean,synonim,antonym);
@@ -48,7 +48,7 @@ public class AddNewWord extends AppCompatActivity {
     private void AddWordToDatabase(String word, String mean, String synonim, String antonym) {
 
         myDatabase = openOrCreateDatabase("MyVocabulary",MODE_PRIVATE,null);
-        String insertQuery = "insert into MyWords (word,wordMean,synonimofWord,antonymofWord) values ('";
+        String insertQuery = "insert into MyWords (word,wordMean,synonymofWord,antonymofWord) values ('";
         insertQuery += word + "','" + mean + "','" + synonim + "','" + antonym + "')";
         myDatabase.execSQL(insertQuery);
     }

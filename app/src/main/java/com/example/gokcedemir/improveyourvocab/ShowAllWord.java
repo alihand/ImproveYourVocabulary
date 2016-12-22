@@ -16,7 +16,7 @@ public class ShowAllWord extends AppCompatActivity {
 
     ArrayList<String> word_ArrayList = new ArrayList<String>();
     ArrayList<String> mean_ArrayList = new ArrayList<String>();
-    ArrayList<String> synonim_ArrayList = new ArrayList<String>();
+    ArrayList<String> synonym_ArrayList = new ArrayList<String>();
     ArrayList<String> antonym_ArrayList = new ArrayList<String>();
     ListView LISTVIEW;
 
@@ -46,14 +46,14 @@ public class ShowAllWord extends AppCompatActivity {
 
         word_ArrayList.clear();
         mean_ArrayList.clear();
-        synonim_ArrayList.clear();
+        synonym_ArrayList.clear();
         antonym_ArrayList.clear();
 
         if (cursor.moveToFirst()) {
             do {
                 word_ArrayList.add(cursor.getString(cursor.getColumnIndex(SqlLiteHelper.KEY_WORD)));
                 mean_ArrayList.add(cursor.getString(cursor.getColumnIndex(SqlLiteHelper.KEY_MEAN)));
-                synonim_ArrayList.add(cursor.getString(cursor.getColumnIndex(SqlLiteHelper.KEY_SYNONIM)));
+                synonym_ArrayList.add(cursor.getString(cursor.getColumnIndex(SqlLiteHelper.KEY_SYNONYM)));
                 antonym_ArrayList.add(cursor.getString(cursor.getColumnIndex(SqlLiteHelper.KEY_ANTONYM)));
             } while (cursor.moveToNext());
         }
@@ -62,7 +62,7 @@ public class ShowAllWord extends AppCompatActivity {
 
                 word_ArrayList,
                 mean_ArrayList,
-                synonim_ArrayList,
+                synonym_ArrayList,
                 antonym_ArrayList
 
         );

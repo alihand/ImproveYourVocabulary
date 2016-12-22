@@ -42,13 +42,11 @@ public class Test extends AppCompatActivity {
                 if(ControlAnswer(answer, questionNow)) {
                     Toast.makeText(Test.this, "That's TRUE !", Toast.LENGTH_SHORT).show();
                     question.setText(SetQuestions());
-                    txtAnswer.clearFocus();
                 }
                 else
                 {
                     Toast.makeText(Test.this, "That's FALSE !", Toast.LENGTH_SHORT).show();
                     question.setText(SetQuestions());
-                    txtAnswer.clearFocus();
                 }
             }
         });
@@ -74,13 +72,13 @@ public class Test extends AppCompatActivity {
 
                 String word = myCursor.getString(myCursor.getColumnIndex("word"));
                 String mean = myCursor.getString(myCursor.getColumnIndex("wordMean"));
-                String synonim = myCursor.getString(myCursor.getColumnIndex("synonimofWord"));
+                String synonym = myCursor.getString(myCursor.getColumnIndex("synonymofWord"));
                 String antonym = myCursor.getString(myCursor.getColumnIndex("antonymofWord"));
 
                 Words newWord = new Words();
                 newWord.setWord(word);
                 newWord.setMean(mean);
-                newWord.setSynonim(synonim);
+                newWord.setSynonym(synonym);
                 newWord.setAntonym(antonym);
 
                 myWords.add(newWord);
@@ -101,13 +99,13 @@ public class Test extends AppCompatActivity {
 
         String gettingWord = myWordList.get(rdNumber).word;
         String gettingMean = myWordList.get(rdNumber).mean;
-        String gettingSynonim = myWordList.get(rdNumber).synonim;
+        String gettingSynonym = myWordList.get(rdNumber).synonym;
         String gettingAntonym = myWordList.get(rdNumber).antonym;
 
         Words askingWord = new Words();
         askingWord.setWord(gettingWord);
         askingWord.setMean(gettingMean);
-        askingWord.setSynonim(gettingSynonim);
+        askingWord.setSynonym(gettingSynonym);
         askingWord.setAntonym(gettingAntonym);
 
         myAskingWord.add(askingWord);
@@ -123,19 +121,19 @@ public class Test extends AppCompatActivity {
         int rdNumber = random.nextInt(4);
 
         String question = null;
-        if(rdNumber == 1)
+        if(rdNumber == 0)
         {
             question = "'"+ askingWordInfo.get(0).word + "' anlamı nedir ?";
         }
-        else if(rdNumber == 2)
+        else if(rdNumber == 1)
         {
             question = "Anlamı " + "'"+ askingWordInfo.get(0).mean + "' olan kelime nedir ?";
         }
-        else if(rdNumber == 3)
+        else if(rdNumber == 2)
         {
-            question = "Eş Anlamı " + "'"+ askingWordInfo.get(0).synonim + "' olan kelime nedir ?";
+            question = "Eş Anlamı " + "'"+ askingWordInfo.get(0).synonym + "' olan kelime nedir ?";
         }
-        else if(rdNumber == 4)
+        else if(rdNumber == 3)
         {
             question = "Zıt Anlamı " + "'"+  askingWordInfo.get(0).antonym + "' olan kelime nedir ?";
         }
@@ -147,13 +145,13 @@ public class Test extends AppCompatActivity {
 
         boolean result = false;
 
-        if (askingWordInfo.get(0).mean == answer && question.contains(askingWordInfo.get(0).word))
+        if (answer.equals(askingWordInfo.get(0).mean) && question.indexOf(askingWordInfo.get(0).word)>0)
             result = true;
-        else if (askingWordInfo.get(0).word == answer && question.contains(askingWordInfo.get(0).mean))
+        if (answer.equals(askingWordInfo.get(0).word) && question.indexOf(askingWordInfo.get(0).mean)>0)
             result = true;
-        else if (askingWordInfo.get(0).word == answer && question.contains(askingWordInfo.get(0).synonim))
+        if (answer.equals(askingWordInfo.get(0).word) && question.indexOf(askingWordInfo.get(0).synonym)>0)
             result = true;
-        else if (askingWordInfo.get(0).word == answer && question.contains(askingWordInfo.get(0).antonym))
+        if (answer.equals(askingWordInfo.get(0).word) && question.indexOf(askingWordInfo.get(0).antonym)>0)
             result = true;
         else
             result = false;

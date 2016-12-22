@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin">
 
     <Button
-        android:text="Add"
+        android:text="Yeni Kelime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -19,7 +19,7 @@
         android:id="@+id/btnAdd" />
 
     <Button
-        android:text="Show"
+        android:text="Kelimelerim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnAdd"
@@ -28,7 +28,7 @@
         android:id="@+id/btnShow" />
 
     <Button
-        android:text="Test"
+        android:text="Oyun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
