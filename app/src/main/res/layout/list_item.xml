@@ -13,7 +13,7 @@
         android:layout_alignParentTop="true"
         android:textSize="15sp"
         android:textStyle="normal|bold"
-        android:text="Kelime :   "
+        android:text="Word :   "
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -24,7 +24,7 @@
         android:layout_below="@+id/txter1"
         android:textSize="15sp"
         android:textStyle="normal|bold"
-        android:text="Anlam :   "
+        android:text="Mean :   "
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -35,7 +35,7 @@
         android:layout_below="@+id/txter2"
         android:textSize="15sp"
         android:textStyle="normal|bold"
-        android:text="Eş Anlam :   "
+        android:text="Synonym :   "
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -46,7 +46,7 @@
         android:layout_below="@+id/txter3"
         android:textSize="15sp"
         android:textStyle="normal|bold"
-        android:text="Zıt Anlam :   "
+        android:text="Antonym :   "
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView

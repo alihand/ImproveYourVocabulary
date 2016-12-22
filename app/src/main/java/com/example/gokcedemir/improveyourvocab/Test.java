@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -39,14 +40,18 @@ public class Test extends AppCompatActivity {
                 EditText txtAnswer = (EditText) findViewById(R.id.txtAnswer);
                 String answer = txtAnswer.getText().toString();
 
+                ImageView image = (ImageView)findViewById(R.id.ımageCorrect);
+
                 if(ControlAnswer(answer, questionNow)) {
-                    Toast.makeText(Test.this, "That's TRUE !", Toast.LENGTH_SHORT).show();
+                    image.setBackgroundResource(R.drawable.tick);
                     question.setText(SetQuestions());
+                    txtAnswer.setText(null);
                 }
                 else
                 {
-                    Toast.makeText(Test.this, "That's FALSE !", Toast.LENGTH_SHORT).show();
+                    image.setBackgroundResource(R.drawable.delete);
                     question.setText(SetQuestions());
+                    txtAnswer.setText(null);
                 }
             }
         });
