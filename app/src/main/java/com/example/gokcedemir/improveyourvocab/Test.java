@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Random;
+import android.view.View.OnKeyListener;
+import android.view.KeyEvent;
 
 public class Test extends AppCompatActivity {
 
@@ -27,6 +29,38 @@ public class Test extends AppCompatActivity {
         TextView question = (TextView) findViewById(R.id.lblQuestion);
         question.setText(SetQuestions());
 
+        EditText txtAnswer = (EditText) findViewById(R.id.txtAnswer);
+        txtAnswer.setOnKeyListener(new OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+
+                    TextView question = (TextView) findViewById(R.id.lblQuestion);
+                    String questionNow = question.getText().toString();
+
+                    EditText txtAnswer = (EditText) findViewById(R.id.txtAnswer);
+                    String answer = txtAnswer.getText().toString();
+
+                    ImageView image = (ImageView)findViewById(R.id.ımageCorrect);
+                    image.setBackgroundResource(0);
+
+                    if(ControlAnswer(answer, questionNow)) {
+                        image.setBackgroundResource(R.drawable.tick);
+                        question.setText(SetQuestions());
+                        txtAnswer.setText(null);
+                    }
+                    else
+                    {
+                        image.setBackgroundResource(R.drawable.delete);
+                        question.setText(SetQuestions());
+                        txtAnswer.setText(null);
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+
         Button controlButton = (Button) findViewById(R.id.btnControl);
 
         controlButton.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +75,7 @@ public class Test extends AppCompatActivity {
                 String answer = txtAnswer.getText().toString();
 
                 ImageView image = (ImageView)findViewById(R.id.ımageCorrect);
+                image.setBackgroundResource(0);
 
                 if(ControlAnswer(answer, questionNow)) {
                     image.setBackgroundResource(R.drawable.tick);
@@ -158,8 +193,6 @@ public class Test extends AppCompatActivity {
             result = true;
         if (answer.equals(askingWordInfo.get(0).word) && question.indexOf(askingWordInfo.get(0).antonym)>0)
             result = true;
-        else
-            result = false;
 
         return result;
     }

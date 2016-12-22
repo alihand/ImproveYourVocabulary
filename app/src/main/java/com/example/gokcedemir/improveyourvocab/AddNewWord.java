@@ -35,21 +35,21 @@ public class AddNewWord extends AppCompatActivity {
 
                 String word = wordText.getText().toString();
                 String mean = meanText.getText().toString();
-                String synonim = synonymText.getText().toString();
+                String synonym = synonymText.getText().toString();
                 String antonym = antonymText.getText().toString();
 
-                AddWordToDatabase(word,mean,synonim,antonym);
+                AddWordToDatabase(word,mean,synonym,antonym);
                 Toast.makeText(AddNewWord.this, "Success !", Toast.LENGTH_LONG).show();
             }
 
         });
     }
 
-    private void AddWordToDatabase(String word, String mean, String synonim, String antonym) {
+    private void AddWordToDatabase(String word, String mean, String synonym, String antonym) {
 
         myDatabase = openOrCreateDatabase("MyVocabulary",MODE_PRIVATE,null);
         String insertQuery = "insert into MyWords (word,wordMean,synonymofWord,antonymofWord) values ('";
-        insertQuery += word + "','" + mean + "','" + synonim + "','" + antonym + "')";
+        insertQuery += word + "','" + mean + "','" + synonym + "','" + antonym + "')";
         myDatabase.execSQL(insertQuery);
     }
 }
