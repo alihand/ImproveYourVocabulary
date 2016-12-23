@@ -38,10 +38,18 @@ public class AddNewWord extends AppCompatActivity {
                 String synonym = synonymText.getText().toString();
                 String antonym = antonymText.getText().toString();
 
-                AddWordToDatabase(word,mean,synonym,antonym);
-                Toast.makeText(AddNewWord.this, "Success !", Toast.LENGTH_LONG).show();
+                if(word.matches("") && mean.matches("") && synonym.matches("") && antonym.matches("") )
+                    Toast.makeText(AddNewWord.this, "Lütfen kelime giriniz !", Toast.LENGTH_LONG).show();
+                else
+                {
+                    AddWordToDatabase(word.replaceAll("\\s+$", ""),mean.replaceAll("\\s+$", ""),synonym.replaceAll("\\s+$", ""),antonym.replaceAll("\\s+$", ""));
+                    Toast.makeText(AddNewWord.this, "Başarıyla Kaydedildi !", Toast.LENGTH_LONG).show();
+                    wordText.setText(null);
+                    meanText.setText(null);
+                    synonymText.setText(null);
+                    antonymText.setText(null);
+                }
             }
-
         });
     }
 

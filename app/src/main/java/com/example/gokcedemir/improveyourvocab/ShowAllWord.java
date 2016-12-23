@@ -6,19 +6,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 import java.util.ArrayList;
+import android.view.ContextMenu;
+import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 
 public class ShowAllWord extends AppCompatActivity {
 
     SqlLiteHelper SQLITEHELPER;
     SQLiteDatabase SQLITEDATABASE;
     Cursor cursor;
-    SqlLiteListAdapter ListAdapter ;
+    SqlLiteListAdapter ListAdapter;
 
     ArrayList<String> word_ArrayList = new ArrayList<String>();
     ArrayList<String> mean_ArrayList = new ArrayList<String>();
     ArrayList<String> synonym_ArrayList = new ArrayList<String>();
     ArrayList<String> antonym_ArrayList = new ArrayList<String>();
     ListView LISTVIEW;
+
+    private static final int ID_SIL = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,8 +34,38 @@ public class ShowAllWord extends AppCompatActivity {
 
         LISTVIEW = (ListView) findViewById(R.id.lwWordList);
         SQLITEHELPER = new SqlLiteHelper(this);
-
+        registerForContextMenu(LISTVIEW);
     }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View vi, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu,vi,menuInfo);
+
+        menu.add(Menu.NONE,ID_SIL,0,"Sil");
+    }
+
+    public boolean onContextItemSelected(MenuItem item) {
+
+        AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+        int listPosition = info.position;
+
+        switch (item.getItemId())
+        {
+            case ID_SIL:
+                deleteWord(word_ArrayList.get(listPosition).toString());
+                return true;
+        }
+
+        return false;
+    }
+
+    public void deleteWord(String word) {
+
+        SQLiteDatabase db = SQLITEHELPER.getWritableDatabase();
+        db.delete("MyWords", "word" +"='"+word+"'",null);
+        db.close();
+    }
+
 
     @Override
     protected void onResume() {
